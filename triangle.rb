@@ -14,6 +14,8 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  if a <= 0 or b <= 0 or c <= 0 then raise TriangleError, "Side lengths must be greater than 0" end
+  if a + b <= c or a + c <= b or b + c <= a then raise TriangleError, "Side lengths invalid" end
   return :equilateral if a == b and b == c
   return :isosceles if a == b or b == c or a == c
   return :scalene
